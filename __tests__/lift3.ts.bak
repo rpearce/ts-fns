@@ -1,0 +1,12 @@
+import { lift3, propOr } from '../source'
+
+test('lift3', () => {
+  const propOrNA = propOr('N/A')
+  const getName  = propOrNA('name')
+  const getEmail = propOrNA('email')
+  const getAge   = propOrNA('age')
+  const joinPipe = (x: string) => (y: string) => (z: string) => `${x} | ${y} | ${z}`
+  const input    = { name: 'bobert', email: 'bobert@email.com', foo: 'bar' }
+
+  expect(lift3(joinPipe)(getName)(getEmail)(getAge)(input)).toStrictEqual('')
+})
