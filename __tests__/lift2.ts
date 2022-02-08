@@ -6,7 +6,7 @@ test('lift2 gets name, email & joins into string with a pipe', () => {
   const getEmail      = propOrNA('email')
   const joinPipe      = (x: string) => (y: string) => `${x} | ${y}`
   const joinNameEmail = lift2(joinPipe)(getName)(getEmail)
-  const input         = { name: 'bobert', email: 'bobert@email.com', foo: 'bar' }
+  const input         = { name: 'bobert', email: 'bobert@email.com', foo: 'bar' } as const
 
   expect(joinNameEmail(input)).toStrictEqual('bobert | bobert@email.com')
 })

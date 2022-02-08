@@ -7,7 +7,7 @@ test('lift3 gets name, email, age & joins into string with a pipe', () => {
   const getAge           = propOrNA('age')
   const joinPipe         = (x: string) => (y: string) => (z: string) => `${x} | ${y} | ${z}`
   const joinNameEmailAge = lift3(joinPipe)(getName)(getEmail)(getAge)
-  const input            = { name: 'bobert', email: 'bobert@email.com', age: 34, foo: 'bar' }
+  const input            = { name: 'bobert', email: 'bobert@email.com', age: 34, foo: 'bar' } as const
 
   expect(joinNameEmailAge(input)).toStrictEqual('bobert | bobert@email.com | 34')
 })
