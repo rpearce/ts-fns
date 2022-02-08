@@ -1,5 +1,5 @@
 {
-  "name": "ts-fns",
+  "name": "@rpearce/ts-fns",
   "version": "0.1.0",
   "description": "",
   "author": "Robert Pearce <me@robertwpearce.com> (https://robertwpearce.com)",
@@ -10,8 +10,18 @@
     ".": "./dist/index.js"
   },
   "sideEffects": false,
-  "keywords": [],
-  "tags": [],
+  "keywords": [
+    "typescript",
+    "ts",
+    "functional programming",
+    "helper functions"
+  ],
+  "tags": [
+    "typescript",
+    "ts",
+    "functional programming",
+    "helper functions"
+  ],
   "files": ["dist/"],
   "scripts": {
     "build": "rm -rf dist && tsc",
