@@ -4,14 +4,12 @@ export interface PropOr {
   <A>(fallback: A):
   <K extends Key>(property: K)
   => <B>(data: B)
-  => B[keyof B] | A
+  => B extends Record<K, infer V> ? (V extends null | undefined ? A : V) : A
 }
 
 export const propOr: PropOr = fallback => property => data => {
   if (data instanceof Object) {
-    return (
-      (data as unknown) as Record<Key, typeof data[keyof typeof data]>
-    )[property] || fallback
+    return (data as any)[property] || fallback // eslint-disable-line @typescript-eslint/no-explicit-any
   } else {
     return fallback
   }
