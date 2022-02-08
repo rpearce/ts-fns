@@ -1,5 +1,7 @@
 # @rpearce/ts-fns
 
+[![npm version](https://img.shields.io/npm/v/@rpearce/ts-fns.svg?style=flat-square)](https://www.npmjs.com/package/@rpearce/ts-fns) [![npm downloads](https://img.shields.io/npm/dm/@rpearce/ts-fns.svg?style=flat-square)](https://www.npmjs.com/package/@rpearce/ts-fns) [![bundlephobia size](https://flat.badgen.net/bundlephobia/minzip/@rpearce/ts-fns)](https://bundlephobia.com/result?p=@rpearce/ts-fns)
+
 This repo & package are for experimentation with typescript and functions. Use
 at your own risk :warning:.
 
