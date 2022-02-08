@@ -34,3 +34,19 @@ test('propOr returns property if found in object', () => {
 
   expect(propOr(fallback)(prop)(input)).toStrictEqual('bobert')
 })
+
+test('propOr returns fallback if not found in array', () => {
+  const fallback = -1
+  const prop     = 3
+  const input    = [1, 2, 3]
+
+  expect(propOr(fallback)(prop)(input)).toStrictEqual(-1)
+})
+
+test('propOr returns property if found in array', () => {
+  const fallback = -1
+  const prop     = 0
+  const input    = [1, 2, 3]
+
+  expect(propOr(fallback)(prop)(input)).toStrictEqual(1)
+})
