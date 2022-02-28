@@ -5,5 +5,4 @@ export interface IsFunctor {
 }
 
 export const isFunctor: IsFunctor = x =>
-  (isArray(x) || isObject(x))
-    && isFunction((x as Record<string, unknown> | Array<unknown>).map)
+  (isArray(x) || isObject(x)) && isFunction(x.map)
