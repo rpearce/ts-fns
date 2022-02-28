@@ -16,7 +16,7 @@ Special thanks to the following for helping with some typings!
 npm i @rpearce/ts-fns
 ```
 
-```ts
+```typescript
 import { lift2, propOr } from '@rpearce/ts-fns'
 
 const propOrNA      = propOr('N/A')
@@ -32,8 +32,11 @@ console.log(joinNameEmail(input))
 
 ## Typed functions
 
+* [`F`](./source/F.ts)
+* [`T`](./source/T.ts)
 * [`compose2`](./source/compose2.ts)
 * [`compose3`](./source/compose3.ts)
+* [`cond`](./source/cond.ts)
 * [`constant`](./source/constant.ts)
 * [`identity`](./source/identity.ts)
 * [`isArray`](./source/isArray.ts)
@@ -47,5 +50,14 @@ console.log(joinNameEmail(input))
 * [`mapObject`](./source/mapObject.ts)
 * [`propOr`](./source/propOr.ts)
 * [`reduce`](./source/reduce.ts)
-* [`reduceRight`](./source/.ts)
-* [`sum`](./source/.ts)
+* [`reduceRight`](./source/reduceRight.ts)
+* [`sum`](./source/sum.ts)
+* [`unless`](./source/unless.ts)
+* [`when`](./source/when.ts)
+
+## TODO
+
+* `both`
+* `either`
+* `neither`
+* `ifElse`

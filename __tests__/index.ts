@@ -2,8 +2,11 @@ import * as fns from '../source'
 
 test('all exports are defined', () => {
   const expectedFns = [
+    'F',
+    'T',
     'compose2',
     'compose3',
+    'cond',
     'constant',
     'identity',
     'isArray',
@@ -19,6 +22,8 @@ test('all exports are defined', () => {
     'reduce',
     'reduceRight',
     'sum',
+    'unless',
+    'when',
   ]
 
   expect(expectedFns.length).toStrictEqual(Object.keys(fns).length)
