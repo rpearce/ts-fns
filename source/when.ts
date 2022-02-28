@@ -1,6 +1,6 @@
 import { isFunction } from './'
 
-interface When {
+export interface When {
   <A>(condition: ((x: A) => boolean) | A | unknown):
   <B>(returnVal: ((x: A) => B) | B | unknown)
   => (data: A)

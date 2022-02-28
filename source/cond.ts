@@ -1,6 +1,6 @@
 import { isFunction } from './'
 
-interface Cond {
+export interface Cond {
   <A, B>(tuplesBox: [
     A | ((val: A) => boolean) | unknown,
     B | ((val: A) => B),
