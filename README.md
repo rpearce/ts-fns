@@ -5,6 +5,9 @@
 :warning: This repo & package are for experimentation with typescript and
 functions. Use at your own risk.
 
+This work is public domain ([LICENSE](./LICENSE)), so feel free to use whatever
+you like.
+
 Special thanks to the following for helping with some typings!
 
 * [Hackle Wayne](https://github.com/hackle)
