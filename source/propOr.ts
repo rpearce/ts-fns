@@ -1,4 +1,4 @@
-type Key = string | number | symbol
+import { Key } from './'
 
 export interface PropOr {
   <A>(fallback: A):

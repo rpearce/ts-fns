@@ -1,5 +1,4 @@
-import { map } from '../source'
-import { Functor } from '../source/map'
+import { Functor, map } from '../source'
 
 test('map returns input if function not provided', () => {
   const input = { foo: 'bar' }
