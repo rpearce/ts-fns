@@ -1,4 +1,5 @@
 export { F } from './F'
+export { Functor, Key, Objekt } from './customTypes'
 export { T } from './T'
 export { compose2 } from './compose2'
 export { compose3 } from './compose3'
