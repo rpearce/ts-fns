@@ -60,7 +60,10 @@ console.log(joinNameEmail(input))
 
 ## TODO
 
+* `ascBy`
 * `both`
+* `descBy`
 * `either`
-* `neither`
 * `ifElse`
+* `neither`
+* `takeN`
