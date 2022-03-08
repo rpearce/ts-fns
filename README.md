@@ -64,6 +64,8 @@ console.log(joinNameEmail(input))
 * `both`
 * `descBy`
 * `either`
+* `filter`
 * `ifElse`
 * `neither`
+* `takeKeys`
 * `takeN`
