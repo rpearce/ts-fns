@@ -1,6 +1,5 @@
 import {
   Functor,
-  Objekt,
   compose2,
   isFunction,
   isFunctor,
@@ -10,7 +9,7 @@ import {
 
 export type MapData<A> =
     Functor<A>
-  | Objekt<A>
+  | Record<PropertyKey, A>
   | ((x: unknown) => A)
 
 export const map = <A, B>(fn: (x: A) => B) => (m: MapData<A>) => {

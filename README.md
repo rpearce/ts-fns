@@ -41,7 +41,10 @@ console.log(joinNameEmail(input))
 * [`compose3`](./source/compose3.ts)
 * [`cond`](./source/cond.ts)
 * [`constant`](./source/constant.ts)
+* [`doesPropEq`](./source/doesPropEq.ts)
+* [`hasProp`](./source/hasProp.ts)
 * [`identity`](./source/identity.ts)
+* [`insertAt`](./source/insertAt.ts)
 * [`isArray`](./source/isArray.ts)
 * [`isFunction`](./source/isFunction.ts)
 * [`isFunctor`](./source/isFunctor.ts)
@@ -51,21 +54,27 @@ console.log(joinNameEmail(input))
 * [`log`](./source/log.ts)
 * [`map`](./source/map.ts)
 * [`mapObject`](./source/mapObject.ts)
+* [`omitKeys`](./source/omitKeys.ts)
+* [`pickKeys`](./source/pickKeys.ts)
+* [`pipe2`](./source/pipe2.ts)
+* [`pipe3`](./source/pipe3.ts)
 * [`propOr`](./source/propOr.ts)
 * [`reduce`](./source/reduce.ts)
 * [`reduceRight`](./source/reduceRight.ts)
+* [`shuffle`](./source/shuffle.ts)
 * [`sum`](./source/sum.ts)
+* [`takeN`](./source/takeN.ts)
 * [`unless`](./source/unless.ts)
 * [`when`](./source/when.ts)
 
 ## TODO
 
-* `ascBy`
 * `both`
-* `descBy`
 * `either`
 * `filter`
 * `ifElse`
 * `neither`
-* `takeKeys`
-* `takeN`
+* `pluckKeys`
+* `sortAscBy`
+* `sortDescBy`
+* `zip`
