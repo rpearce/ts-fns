@@ -4,7 +4,7 @@ export interface Cond {
   <A, B>(tuplesBox: [
     A | ((val: A) => boolean) | unknown,
     B | ((val: A) => B),
-  ][]): (data: A) => A | B
+  ][]): (data: A) => A | B | unknown
 }
 
 export const cond: Cond = tuplesBox => data => {

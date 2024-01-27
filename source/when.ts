@@ -2,9 +2,9 @@ import { isFunction } from './'
 
 export interface When {
   <A>(condition: ((x: A) => boolean) | A | unknown):
-  <B>(returnVal: ((x: A) => B) | B | unknown)
-  => (data: A)
-  => A | B
+  <B>(returnVal: ((x: A) => B) | B | unknown) =>
+  (data: A) =>
+  A | B | unknown
 }
 
 export const when: When = condition => returnVal => data => {

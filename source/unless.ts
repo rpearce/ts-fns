@@ -4,7 +4,7 @@ export interface Unless {
   <A>(condition: ((x: A) => boolean) | A | unknown):
   <B>(returnVal: ((x: A) => B) | B | unknown)
   => (data: A)
-  => A | B
+  => A | B | unknown
 }
 
 export const unless: Unless = condition => returnVal => data => {
