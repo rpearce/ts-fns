@@ -1,4 +1,4 @@
-import { Functor, map } from '../source'
+import { Functor, map, mapU } from '../source'
 
 test('map returns input if function not provided', () => {
   const input = { foo: 'bar' }
@@ -6,7 +6,11 @@ test('map returns input if function not provided', () => {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  expect(map(fn)(input)).toStrictEqual(input)
+  expect(map(fn, input)).toStrictEqual(input)
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  expect(mapU(fn)(input)).toStrictEqual(input)
 })
 
 test('map returns input if input is not mappable', () => {
@@ -15,7 +19,11 @@ test('map returns input if input is not mappable', () => {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  expect(map(fn)(input)).toStrictEqual(input)
+  expect(map(fn, input)).toStrictEqual(input)
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  expect(mapU(fn)(input)).toStrictEqual(input)
 })
 
 test('map returns a transformed array', () => {
@@ -23,7 +31,8 @@ test('map returns a transformed array', () => {
   const output = [2,4,6]
   const fn     = (x: number) => x * 2
 
-  expect(map(fn)(input)).toEqual(output)
+  expect(map(fn, input)).toEqual(output)
+  expect(mapU(fn)(input)).toEqual(output)
   expect(input).toEqual([1,2,3]) // not mutated
 })
 
@@ -37,8 +46,9 @@ test('map returns result of mapping a functor', () => {
   const output = 10
   const fn     = (x: number) => x * 5
 
-  // regrettable casting on next line...
-  expect((map(fn)(input) as Functor<number>).value).toEqual(output)
+  // regrettable casting on the next 2 lines...
+  expect((map(fn, input) as Functor<number>).value).toEqual(output)
+  expect((mapU(fn)(input) as Functor<number>).value).toEqual(output)
   expect(input.value).toEqual(2) // not mutated
 })
 
@@ -47,6 +57,7 @@ test('map returns transformed object', () => {
   const output = { foo: 'BAR', baz: 'QUX' }
   const fn     = (x: string) => x.toUpperCase()
 
-  expect(map(fn)(input)).toEqual(output)
+  expect(map(fn, input)).toEqual(output)
+  expect(mapU(fn)(input)).toEqual(output)
   expect(input).toEqual({ foo: 'bar', baz: 'qux' }) // not mutated
 })
