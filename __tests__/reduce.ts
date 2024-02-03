@@ -1,4 +1,4 @@
-import { reduce } from '../source'
+import { reduce, reduceU } from '../source'
 
 test('reduce works on a list to filter our odd numbers', () => {
   const initialValue: number[] = []
@@ -7,5 +7,6 @@ test('reduce works on a list to filter our odd numbers', () => {
   const fn = (acc: number[], x: number) =>
     x % 2 === 0 ? acc.concat(x) : acc
 
-  expect(reduce(fn)(initialValue)(input)).toEqual([2, 4])
+  expect(reduce(fn, initialValue, input)).toEqual([2, 4])
+  expect(reduceU(fn)(initialValue)(input)).toEqual([2, 4])
 })

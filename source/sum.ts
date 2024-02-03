@@ -5,4 +5,4 @@ export interface Sum {
 }
 
 export const sum: Sum = xs =>
-  reduce<number, number>((acc, x) => acc + x)(0)(xs)
+  reduce<number, number>((acc, x) => acc + x, 0, xs)

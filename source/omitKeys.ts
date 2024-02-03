@@ -3,7 +3,7 @@ export const omitKeys =
     K extends PropertyKey,
     A extends Record<PropertyKey, unknown>
   >
-  (keys: K[]) => (obj: A): Partial<A> => {
+  (keys: K[], obj: A): Partial<A> => {
     const keysIndex: { [key: PropertyKey]: boolean } = {}
     const result: Partial<A> = {}
 
@@ -19,3 +19,11 @@ export const omitKeys =
 
     return result
   }
+
+export const omitKeysU =
+  <
+    K extends PropertyKey,
+    A extends Record<PropertyKey, unknown>
+  >
+  (keys: K[]) => (obj: A): Partial<A> =>
+    omitKeys(keys, obj)

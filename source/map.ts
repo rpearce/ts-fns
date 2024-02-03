@@ -12,14 +12,14 @@ export type MapData<A> =
   | Record<PropertyKey, A>
   | ((x: unknown) => A)
 
-export const map = <A, B>(fn: (x: A) => B) => (m: MapData<A>) => {
+export const map = <A, B>(fn: (x: A) => B, m: MapData<A>) => {
   if (isFunction(fn)) {
     if (isFunctor(m)) {
       return m.map(fn)
     }
 
     if (isObject(m)) {
-      return mapObject(fn)(m)
+      return mapObject(fn, m)
     }
 
     if (isFunction(m)) {
@@ -29,3 +29,6 @@ export const map = <A, B>(fn: (x: A) => B) => (m: MapData<A>) => {
 
   return m
 }
+
+export const mapU = <A, B>(fn: (x: A) => B) => (m: MapData<A>) =>
+  map(fn, m)
