@@ -48,12 +48,13 @@ in `U`; e.g., `cond` also exports `condU`.
 * [`pipe3`](./source/pipe3.ts)
 * [`propOr`, `propOrU`](./source/propOr.ts)
 * [`reduce`, `reduceU`](./source/reduce.ts)
-* [`reduceRight`](./source/reduceRight.ts)
+* [`reduceRight`, `reduceRightU`](./source/reduceRight.ts)
 * [`shuffle`](./source/shuffle.ts)
 * [`sum`](./source/sum.ts)
-* [`takeN`](./source/takeN.ts)
-* [`unless`](./source/unless.ts)
-* [`when`](./source/when.ts)
+* [`takeN`, `takeNU`](./source/takeN.ts)
+* [`unless`, `unlessU`](./source/unless.ts)
+* [`when`, `whenU`](./source/when.ts)
+* [`zip`](./source/zip.ts)
 
 ## TODO
 
