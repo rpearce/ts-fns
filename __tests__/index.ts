@@ -4,6 +4,7 @@ test('all exports are defined', () => {
   const expectedFns = [
     'F',
     'T',
+    'classNames',
     'compose2',
     'compose3',
     'cond',

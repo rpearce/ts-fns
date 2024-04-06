@@ -1,6 +1,7 @@
 export { F } from './F'
 export { Functor } from './customTypes'
 export { T } from './T'
+export { classNames } from './classNames'
 export { compose2 } from './compose2'
 export { compose3 } from './compose3'
 export { cond, condU } from './cond'
