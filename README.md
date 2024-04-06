@@ -25,6 +25,7 @@ in `U`; e.g., `cond` also exports `condU`.
 
 * [`F`](./source/F.ts)
 * [`T`](./source/T.ts)
+* [`classNames`](./source/classNames.ts)
 * [`compose2`](./source/compose2.ts)
 * [`compose3`](./source/compose3.ts)
 * [`cond`, `condU`](./source/cond.ts)

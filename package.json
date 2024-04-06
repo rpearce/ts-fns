@@ -1,6 +1,6 @@
 {
   "name": "@rpearce/ts-fns",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Public domain Typescript helper functions for copying & pasting into projects.",
   "author": "Robert Pearce <me@robertwpearce.com> (https://robertwpearce.com)",
   "license": "Unlicense",
