@@ -12,6 +12,8 @@ test('all exports are defined', () => {
     'constant',
     'doesPropEq',
     'doesPropEqU',
+    'filter',
+    'filterU',
     'hasProp',
     'hasPropU',
     'identity',
