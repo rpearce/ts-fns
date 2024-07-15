@@ -22,15 +22,20 @@
     "functional programming",
     "helper functions"
   ],
-  "files": ["dist/"],
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "rm -rf dist && tsc",
+    "changeset": "changeset",
     "ci": "run-p lint test build",
     "lint": "eslint .",
-    "prepublishOnly": "run-p lint test && npm run build",
+    "prepack": "run-p lint test && npm run build",
+    "release": "changeset publish",
     "test": "jest"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.7",
     "@types/jest": "^29.5.12",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.14.10",
@@ -40,7 +45,7 @@
     "eslint-plugin-jest": "^28.6.0",
     "jest": "^29.7.0",
     "npm-run-all": "^4.1.5",
-    "typescript": "^5.5.3",
-    "ts-jest": "^29.1.5"
+    "ts-jest": "^29.1.5",
+    "typescript": "^5.5.3"
   }
 }
