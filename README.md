@@ -64,7 +64,6 @@ in `U`; e.g., `cond` also exports `condU`.
 * `either`
 * `ifElse`
 * `neither`
-* `pluckKeys`
 * `sortAscBy`
 * `sortDescBy`
 * ??? Open an issue to request something!
