@@ -3,8 +3,8 @@ export interface Compose3 {
     f: (x: C) => D,
     g: (x: B) => C,
     h: (x: A) => B
-  ):   (x: A) => D
+  ): (x: A) => D
 }
 
 export const compose3: Compose3 = (f, g, h) => (x) =>
-  f(g (h (x)))
+  f(g(h(x)))

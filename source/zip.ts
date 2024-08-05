@@ -11,7 +11,7 @@ export const zip: Zip = (xs, ys) => {
   const zs = new Array(maxLength)
 
   for (let i = 0; i < maxLength; i++) {
-    zs[i] = [ xs[i], ys[i] ]
+    zs[i] = [xs[i], ys[i]]
   }
 
   return zs

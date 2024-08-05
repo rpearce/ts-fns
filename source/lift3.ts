@@ -18,7 +18,7 @@ export interface Lift3U {
 }
 
 export const lift3: Lift3 = (f, g, h, i) => x =>
-  f (g (x)) (h (x)) (i (x))
+  f(g(x))(h(x))(i(x))
 
 export const lift3U: Lift3U = f => g => h => i => x =>
   lift3(f, g, h, i)(x)

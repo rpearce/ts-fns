@@ -1,6 +1,6 @@
 export const filter = (
   fn: Parameters<typeof Array.prototype.filter>[0],
-  arr: Array<unknown>
+  arr: unknown[]
 ) =>
   arr.filter(fn)
 

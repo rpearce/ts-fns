@@ -17,7 +17,7 @@ export interface WhenU {
 }
 
 export const when: When = (condition, returnVal, data) => {
-  if (condition === data || isFunction(condition) && condition(data)) {
+  if (condition === data || (isFunction(condition) && condition(data))) {
     return isFunction(returnVal) ? returnVal(data) : returnVal
   }
 

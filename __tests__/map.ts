@@ -2,7 +2,7 @@ import { Functor, map, mapU } from '../source'
 
 test('map returns input if function not provided', () => {
   const input = { foo: 'bar' }
-  const fn    = undefined
+  const fn = undefined
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -15,7 +15,7 @@ test('map returns input if function not provided', () => {
 
 test('map returns input if input is not mappable', () => {
   const input = 123
-  const fn    = (x: number) => x + 1
+  const fn = (x: number) => x + 1
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -27,13 +27,13 @@ test('map returns input if input is not mappable', () => {
 })
 
 test('map returns a transformed array', () => {
-  const input  = [1,2,3]
-  const output = [2,4,6]
-  const fn     = (x: number) => x * 2
+  const input = [1, 2, 3]
+  const output = [2, 4, 6]
+  const fn = (x: number) => x * 2
 
   expect(map(fn, input)).toEqual(output)
   expect(mapU(fn)(input)).toEqual(output)
-  expect(input).toEqual([1,2,3]) // not mutated
+  expect(input).toEqual([1, 2, 3]) // not mutated
 })
 
 test('map returns result of mapping a functor', () => {
@@ -42,9 +42,9 @@ test('map returns result of mapping a functor', () => {
     map: fn => F(fn(value)),
   })
 
-  const input  = F(2)
+  const input = F(2)
   const output = 10
-  const fn     = (x: number) => x * 5
+  const fn = (x: number) => x * 5
 
   // regrettable casting on the next 2 lines...
   expect((map(fn, input) as Functor<number>).value).toEqual(output)
@@ -53,9 +53,9 @@ test('map returns result of mapping a functor', () => {
 })
 
 test('map returns transformed object', () => {
-  const input  = { foo: 'bar', baz: 'qux' }
+  const input = { foo: 'bar', baz: 'qux' }
   const output = { foo: 'BAR', baz: 'QUX' }
-  const fn     = (x: string) => x.toUpperCase()
+  const fn = (x: string) => x.toUpperCase()
 
   expect(map(fn, input)).toEqual(output)
   expect(mapU(fn)(input)).toEqual(output)
