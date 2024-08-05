@@ -1,2 +1,2 @@
-export const isArray = (x: unknown): x is Array<unknown> =>
+export const isArray = (x: unknown): x is unknown[] =>
   Array.isArray(x)

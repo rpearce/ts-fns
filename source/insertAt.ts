@@ -11,7 +11,7 @@ export interface InsertAtU {
   unknown[]
 }
 
-export const insertAt: InsertAt = (i, ...ys) =>  xs =>
+export const insertAt: InsertAt = (i, ...ys) => xs =>
   xs.toSpliced(i, 0, ...ys)
 
 export const insertAtU: InsertAtU = i => (...ys) => xs =>

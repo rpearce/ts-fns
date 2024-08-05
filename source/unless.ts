@@ -17,7 +17,7 @@ export interface UnlessU {
 }
 
 export const unless: Unless = (condition, returnVal, data) => {
-  if (condition === data || isFunction(condition) && condition(data)) {
+  if (condition === data || (isFunction(condition) && condition(data))) {
     return data
   }
 
