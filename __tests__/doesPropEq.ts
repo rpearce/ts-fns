@@ -1,25 +1,27 @@
-import { doesPropEq, doesPropEqU } from '../source'
+import { doesPropEq, doesPropEqU } from '../source/index.js'
+import assert from 'node:assert/strict'
+import { test } from 'node:test'
 
 test('doesPropEq determines if a property in an object equals a value', () => {
   // Object data
 
-  expect(doesPropEq('color', 'blue', { a: 'foo', b: 'bar', color: 'blue' })).toEqual(true)
-  expect(doesPropEqU('color')('blue')({ a: 'foo', b: 'bar', color: 'blue' })).toEqual(true)
+  assert.deepStrictEqual(doesPropEq('color', 'blue', { a: 'foo', b: 'bar', color: 'blue' }), true)
+  assert.deepStrictEqual(doesPropEqU('color')('blue')({ a: 'foo', b: 'bar', color: 'blue' }), true)
 
-  expect(doesPropEq('color', 'blue', { a: 'foo', b: 'bar', color: 'green' })).toEqual(false)
-  expect(doesPropEqU('color')('blue')({ a: 'foo', b: 'bar', color: 'green' })).toEqual(false)
+  assert.deepStrictEqual(doesPropEq('color', 'blue', { a: 'foo', b: 'bar', color: 'green' }), false)
+  assert.deepStrictEqual(doesPropEqU('color')('blue')({ a: 'foo', b: 'bar', color: 'green' }), false)
 
-  expect(doesPropEq('color', 'blue', {})).toEqual(false)
-  expect(doesPropEqU('color')('blue')({})).toEqual(false)
+  assert.deepStrictEqual(doesPropEq('color', 'blue', {}), false)
+  assert.deepStrictEqual(doesPropEqU('color')('blue')({}), false)
 
   // Array data
 
-  expect(doesPropEq(0, 'blue', ['blue', 'green', 'red'])).toEqual(true)
-  expect(doesPropEqU(0)('blue')(['blue', 'green', 'red'])).toEqual(true)
+  assert.deepStrictEqual(doesPropEq(0, 'blue', ['blue', 'green', 'red']), true)
+  assert.deepStrictEqual(doesPropEqU(0)('blue')(['blue', 'green', 'red']), true)
 
-  expect(doesPropEq(0, 'blue', ['red', 'blue', 'green'])).toEqual(false)
-  expect(doesPropEqU(0)('blue')(['red', 'blue', 'green'])).toEqual(false)
+  assert.deepStrictEqual(doesPropEq(0, 'blue', ['red', 'blue', 'green']), false)
+  assert.deepStrictEqual(doesPropEqU(0)('blue')(['red', 'blue', 'green']), false)
 
-  expect(doesPropEq(3, 'blue', [])).toEqual(false)
-  expect(doesPropEqU(3)('blue')([])).toEqual(false)
+  assert.deepStrictEqual(doesPropEq(3, 'blue', []), false)
+  assert.deepStrictEqual(doesPropEqU(3)('blue')([]), false)
 })

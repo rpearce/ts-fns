@@ -1,4 +1,6 @@
-import { pipe3 } from '../source'
+import assert from 'node:assert/strict'
+import { pipe3 } from '../source/index.js'
+import { test } from 'node:test'
 
 test('pipe3 adds 2, multiplies by 10, then subtracts 3', () => {
   const add = (a: number) => (b: number) => b + a
@@ -9,5 +11,5 @@ test('pipe3 adds 2, multiplies by 10, then subtracts 3', () => {
   const sub3 = sub(3)
   const add12 = pipe3(add2, mult10, sub3)
 
-  expect(add12(8)).toStrictEqual(97)
+  assert.deepStrictEqual(add12(8), 97)
 })

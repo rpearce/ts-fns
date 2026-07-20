@@ -1,4 +1,6 @@
-import * as fns from '../source'
+import * as fns from '../source/index.js'
+import assert from 'node:assert/strict'
+import { test } from 'node:test'
 
 test('all exports are defined', () => {
   const expectedFns = [
@@ -17,6 +19,8 @@ test('all exports are defined', () => {
     'hasProp',
     'hasPropU',
     'identity',
+    'ifElse',
+    'ifElseU',
     'insertAt',
     'insertAtU',
     'isArray',
@@ -56,12 +60,14 @@ test('all exports are defined', () => {
     'zipU',
   ]
 
-  expect(expectedFns.length).toStrictEqual(Object.keys(fns).length)
+  assert.deepStrictEqual(expectedFns.length, Object.keys(fns).length)
 
-  expectedFns.forEach(fnName => {
-    const fn = fns[fnName as keyof typeof fns]
+  const fnMap = new Map(Object.entries(fns))
 
-    expect(typeof fn).toStrictEqual('function')
-    expect(fn.name).toStrictEqual(fnName)
-  })
+  for (const fnName of expectedFns) {
+    const fn = fnMap.get(fnName)
+
+    assert.ok(typeof fn === 'function')
+    assert.deepStrictEqual(fn.name, fnName)
+  }
 })

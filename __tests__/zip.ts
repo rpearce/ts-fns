@@ -1,13 +1,15 @@
-import { zip, zipU } from '../source'
+import { zip, zipU } from '../source/index.js'
+import assert from 'node:assert/strict'
+import { test } from 'node:test'
 
 test('zip combines two lists into pairs by index', () => {
-  expect(zip([], [])).toEqual([])
-  expect(zip([1, 2, 3], [4, 5, 6])).toEqual([[1, 4], [2, 5], [3, 6]])
-  expect(zip([1, 2, 3, 4, 5], [6, 7])).toEqual([[1, 6], [2, 7]])
-  expect(zip([1], [2, 3, 4, 5])).toEqual([[1, 2]])
+  assert.deepStrictEqual(zip([], []), [])
+  assert.deepStrictEqual(zip([1, 2, 3], [4, 5, 6]), [[1, 4], [2, 5], [3, 6]])
+  assert.deepStrictEqual(zip([1, 2, 3, 4, 5], [6, 7]), [[1, 6], [2, 7]])
+  assert.deepStrictEqual(zip([1], [2, 3, 4, 5]), [[1, 2]])
 
-  expect(zipU([])([])).toEqual([])
-  expect(zipU([1, 2, 3])([4, 5, 6])).toEqual([[1, 4], [2, 5], [3, 6]])
-  expect(zipU([1, 2, 3, 4, 5])([6, 7])).toEqual([[1, 6], [2, 7]])
-  expect(zipU([1])([2, 3, 4, 5])).toEqual([[1, 2]])
+  assert.deepStrictEqual(zipU([])([]), [])
+  assert.deepStrictEqual(zipU([1, 2, 3])([4, 5, 6]), [[1, 4], [2, 5], [3, 6]])
+  assert.deepStrictEqual(zipU([1, 2, 3, 4, 5])([6, 7]), [[1, 6], [2, 7]])
+  assert.deepStrictEqual(zipU([1])([2, 3, 4, 5]), [[1, 2]])
 })
