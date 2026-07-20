@@ -6,5 +6,5 @@
     "outDir": "./dist/",
     "rootDir": "./source"
   },
-  "include": ["./source/index.ts"]
+  "include": ["./source"]
 }

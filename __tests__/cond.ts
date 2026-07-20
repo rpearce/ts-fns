@@ -1,4 +1,5 @@
-import { T, cond, condU } from '../source/index.js'
+import { cond, condU } from '../source/cond.js'
+import { T } from '../source/T.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

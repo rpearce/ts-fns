@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { shuffle } from '../source/index.js'
+import { shuffle } from '../source/shuffle.js'
 import { test } from 'node:test'
 
 test('shuffles a list into a permutation of the same elements', () => {

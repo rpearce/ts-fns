@@ -1,5 +1,7 @@
-import { type Functor, isFunctor, map, mapU } from '../source/index.js'
+import { map, mapU } from '../source/map.js'
+import type { Functor } from '../source/customTypes.js'
 import assert from 'node:assert/strict'
+import { isFunctor } from '../source/isFunctor.js'
 import { test } from 'node:test'
 
 const isNumFn = (x: unknown): x is (n: number) => number =>

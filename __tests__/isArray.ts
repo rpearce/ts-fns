@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { isArray } from '../source/index.js'
+import { isArray } from '../source/isArray.js'
 import { test } from 'node:test'
 
 test('isArray returns a boolean', () => {

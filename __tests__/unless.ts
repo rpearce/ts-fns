@@ -1,4 +1,4 @@
-import { unless, unlessU } from '../source/index.js'
+import { unless, unlessU } from '../source/unless.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

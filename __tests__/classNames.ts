@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { classNames } from '../source/index.js'
+import { classNames } from '../source/classNames.js'
 import { test } from 'node:test'
 
 test('cond works will all static values', () => {

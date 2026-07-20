@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { isFunctor } from '../source/index.js'
+import { isFunctor } from '../source/isFunctor.js'
 import { test } from 'node:test'
 
 test('isFunction returns a boolean', () => {

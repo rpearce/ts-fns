@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { pipe3 } from '../source/index.js'
+import { pipe3 } from '../source/pipe3.js'
 import { test } from 'node:test'
 
 test('pipe3 adds 2, multiplies by 10, then subtracts 3', () => {

@@ -1,4 +1,4 @@
-import { T } from '../source/index.js'
+import { T } from '../source/T.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

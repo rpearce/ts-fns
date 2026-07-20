@@ -1,4 +1,4 @@
-import { doesPropEq, doesPropEqU } from '../source/index.js'
+import { doesPropEq, doesPropEqU } from '../source/doesPropEq.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

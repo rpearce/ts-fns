@@ -1,4 +1,4 @@
-import { insertAt, insertAtU } from '../source/index.js'
+import { insertAt, insertAtU } from '../source/insertAt.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

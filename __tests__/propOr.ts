@@ -1,4 +1,4 @@
-import { propOr, propOrU } from '../source/index.js'
+import { propOr, propOrU } from '../source/propOr.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

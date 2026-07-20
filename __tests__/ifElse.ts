@@ -1,4 +1,4 @@
-import { ifElse, ifElseU } from '../source/index.js'
+import { ifElse, ifElseU } from '../source/ifElse.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

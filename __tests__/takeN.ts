@@ -1,4 +1,4 @@
-import { takeN, takeNU } from '../source/index.js'
+import { takeN, takeNU } from '../source/takeN.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

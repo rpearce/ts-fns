@@ -5,9 +5,8 @@
   "author": "Robert Pearce <me@robertwpearce.com> (https://robertwpearce.com)",
   "license": "Unlicense",
   "type": "module",
-  "main": "./dist/index.js",
   "exports": {
-    ".": "./dist/index.js"
+    "./*": "./dist/*.js"
   },
   "sideEffects": false,
   "keywords": [

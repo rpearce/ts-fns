@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { constant } from '../source/index.js'
+import { constant } from '../source/constant.js'
 import { test } from 'node:test'
 
 test('constant returns whatever it was passed when called again', () => {

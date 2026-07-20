@@ -1,4 +1,4 @@
-import { hasProp, hasPropU } from '../source/index.js'
+import { hasProp, hasPropU } from '../source/hasProp.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

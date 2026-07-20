@@ -1,4 +1,4 @@
-import { F } from '../source/index.js'
+import { F } from '../source/F.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

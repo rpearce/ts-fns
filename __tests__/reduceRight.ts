@@ -1,4 +1,4 @@
-import { reduceRight, reduceRightU } from '../source/index.js'
+import { reduceRight, reduceRightU } from '../source/reduceRight.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

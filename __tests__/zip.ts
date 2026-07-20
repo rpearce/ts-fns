@@ -1,4 +1,4 @@
-import { zip, zipU } from '../source/index.js'
+import { zip, zipU } from '../source/zip.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

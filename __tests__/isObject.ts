@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { isObject } from '../source/index.js'
+import { isObject } from '../source/isObject.js'
 import { test } from 'node:test'
 
 test('isObject returns a boolean', () => {

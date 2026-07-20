@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { sum } from '../source/index.js'
+import { sum } from '../source/sum.js'
 import { test } from 'node:test'
 
 test('sum adds all the numbers in a list', () => {

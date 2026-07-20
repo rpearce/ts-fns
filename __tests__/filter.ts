@@ -1,4 +1,4 @@
-import { filter, filterU } from '../source/index.js'
+import { filter, filterU } from '../source/filter.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

@@ -1,5 +1,6 @@
-import { lift2, lift2U, propOrU } from '../source/index.js'
+import { lift2, lift2U } from '../source/lift2.js'
 import assert from 'node:assert/strict'
+import { propOrU } from '../source/propOr.js'
 import { test } from 'node:test'
 
 test('lift2 gets name, email & joins into string with a pipe', () => {

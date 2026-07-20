@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { log } from '../source/index.js'
+import { log } from '../source/log.js'
 import { test } from 'node:test'
 
 test('log returns original value', () => {

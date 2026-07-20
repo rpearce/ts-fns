@@ -1,4 +1,4 @@
-import { omitKeys, omitKeysU } from '../source/index.js'
+import { omitKeys, omitKeysU } from '../source/omitKeys.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { identity } from '../source/index.js'
+import { identity } from '../source/identity.js'
 import { test } from 'node:test'
 
 test('identity returns whatever it was passed', () => {

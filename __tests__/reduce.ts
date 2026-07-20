@@ -1,4 +1,4 @@
-import { reduce, reduceU } from '../source/index.js'
+import { reduce, reduceU } from '../source/reduce.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

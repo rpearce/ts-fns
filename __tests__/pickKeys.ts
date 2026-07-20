@@ -1,4 +1,4 @@
-import { pickKeys, pickKeysU } from '../source/index.js'
+import { pickKeys, pickKeysU } from '../source/pickKeys.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { compose2 } from '../source/index.js'
+import { compose2 } from '../source/compose2.js'
 import { test } from 'node:test'
 
 test('compose2 adds 2 to a number and then multiplies by 10', () => {

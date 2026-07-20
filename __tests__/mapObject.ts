@@ -1,4 +1,4 @@
-import { mapObject, mapObjectU } from '../source/index.js'
+import { mapObject, mapObjectU } from '../source/mapObject.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 

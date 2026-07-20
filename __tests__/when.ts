@@ -1,4 +1,4 @@
-import { when, whenU } from '../source/index.js'
+import { when, whenU } from '../source/when.js'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
