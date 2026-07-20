@@ -34,6 +34,7 @@ in `U`; e.g., `cond` also exports `condU`.
 * [`filter`, `filterU`](./source/filter.ts)
 * [`hasProp`, `hasPropU`](./source/hasProp.ts)
 * [`identity`](./source/identity.ts)
+* [`ifElse`, `ifElseU`](./source/ifElse.ts)
 * [`insertAt`, `insertAtU`](./source/insertAt.ts)
 * [`isArray`](./source/isArray.ts)
 * [`isFunction`](./source/isFunction.ts)
@@ -62,7 +63,6 @@ in `U`; e.g., `cond` also exports `condU`.
 
 * `both`
 * `either`
-* `ifElse`
 * `neither`
 * `sortAscBy`
 * `sortDescBy`

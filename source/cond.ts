@@ -1,9 +1,13 @@
-import { isFunction } from './'
+import { isFunction } from './isFunction.js'
 
 export type CondTuples<A, B> = [
-  ((value: A) => boolean) | unknown,
+  /** a predicate `(value: A) => boolean`, or any static value compared with `===` */
+  unknown,
   ((value: A) => B) | B
 ][]
+
+const isCondFn = (x: unknown): x is (value: unknown) => boolean =>
+  isFunction(x)
 
 export interface Cond {
   <A, B>(tuplesBox: CondTuples<A, B>, data: A): A | B
@@ -15,7 +19,7 @@ export interface CondU {
 
 export const cond: Cond = (tuplesBox, data) => {
   for (const [fst, snd] of tuplesBox) {
-    if (fst === data || (isFunction(fst) && fst(data))) {
+    if (fst === data || (isCondFn(fst) && fst(data))) {
       return isFunction(snd) ? snd(data) : snd
     }
   }

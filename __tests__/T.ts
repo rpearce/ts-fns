@@ -1,13 +1,13 @@
-import { T } from '../source'
+import { T } from '../source/T.js'
+import assert from 'node:assert/strict'
+import { test } from 'node:test'
 
 test('T always returns true', () => {
-  expect(T()).toStrictEqual(true)
+  assert.deepStrictEqual(T(), true)
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  expect(T(null)).toStrictEqual(true)
+  // @ts-expect-error T takes no arguments; stray arguments must still be tolerated
+  assert.deepStrictEqual(T(null), true)
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  expect(T('ignored')).toStrictEqual(true)
+  // @ts-expect-error T takes no arguments; stray arguments must still be tolerated
+  assert.deepStrictEqual(T('ignored'), true)
 })

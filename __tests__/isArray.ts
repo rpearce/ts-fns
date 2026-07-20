@@ -1,10 +1,14 @@
-import { isArray } from '../source'
+import assert from 'node:assert/strict'
+import { isArray } from '../source/isArray.js'
+import { test } from 'node:test'
 
 test('isArray returns a boolean', () => {
-  expect(isArray(null)).toStrictEqual(false)
-  expect(isArray(undefined)).toStrictEqual(false)
-  expect(isArray(1)).toStrictEqual(false)
-  expect(isArray('[1]')).toStrictEqual(false)
-  expect(isArray([])).toStrictEqual(true)
-  expect(isArray([1])).toStrictEqual(true)
+  assert.deepStrictEqual(isArray(null), false)
+  assert.deepStrictEqual(isArray(undefined), false)
+  assert.deepStrictEqual(isArray(1), false)
+  assert.deepStrictEqual(isArray('[1]'), false)
+  assert.deepStrictEqual(isArray({}), false)
+  assert.deepStrictEqual(isArray({ length: 0 }), false)
+  assert.deepStrictEqual(isArray([]), true)
+  assert.deepStrictEqual(isArray([1]), true)
 })

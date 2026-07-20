@@ -1,0 +1,83 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "node": true,
+    "es2024": true
+  },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "pedantic": "error",
+    "perf": "error",
+    "restriction": "error",
+    "style": "error",
+    "nursery": "error"
+  },
+  "rules": {
+    // point-free FP library: f/g/x/xs are the domain language
+    "id-length": "off",
+    // literal numbers in table-style tests are the fixtures themselves
+    "no-magic-numbers": "off",
+    // several tests assert key-insertion order; sorting fixtures would weaken them
+    "sort-keys": "off",
+    // one-line conditionals are idiomatic here (ifElse, when, unless)
+    "no-ternary": "off",
+    // the library's own semantics distinguish null/undefined (propOr, constant)
+    "no-undefined": "off",
+    "unicorn/no-null": "off",
+    "unicorn/no-useless-undefined": "off",
+    // reduce/point-free callback references ARE the library's API
+    "unicorn/no-array-reduce": "off",
+    "unicorn/no-array-callback-reference": "off",
+    // reduce's reducer legitimately takes (acc, x, i, xs)
+    "max-params": "off",
+    // table-style test bodies exceed arbitrary size caps
+    "max-statements": "off",
+    "max-lines-per-function": "off",
+    // test fixtures are deliberately local to their test blocks
+    "unicorn/consistent-function-scoping": "off",
+    // repo pattern: call-signature interfaces (Zip, MapU, ...) name every export's type
+    "typescript/prefer-function-type": "off",
+    // return types flow from those interfaces; re-annotating is redundant
+    "typescript/explicit-function-return-type": "off",
+    "typescript/explicit-module-boundary-types": "off",
+    // deprecated upstream, superseded by no-unsafe-function-type
+    "typescript/ban-types": "off",
+    // optional chaining is fine for this package's runtime targets
+    "oxc/no-optional-chaining": "off",
+    // prose comments, not headers
+    "capitalized-comments": "off",
+    "no-inline-comments": "off",
+    // overloaded function declarations (propOr) coexist with arrow-expression style
+    "func-style": "off",
+    // a readonly-first API redesign is a deliberate opt-in project, not a lint fix
+    "typescript/prefer-readonly-parameter-types": "off",
+    // node:test's test() promises are managed by the runner
+    "typescript/no-floating-promises": ["error", {
+      "allowForKnownSafeCalls": [
+        { "from": "package", "name": ["test", "describe", "it", "suite"], "package": "node:test" }
+      ]
+    }],
+    // F() and T() are the library's combinator API, not constructors
+    "new-cap": ["error", { "capIsNew": false }],
+    // camelCase modules plus the F/T combinators; renames would break import paths
+    "unicorn/filename-case": ["error", { "cases": { "camelCase": true, "pascalCase": true } }]
+  },
+  "overrides": [
+    {
+      // the broad Function type is the entire point of this guard (see the linked TS issue in-file)
+      "files": ["source/isFunction.ts"],
+      "rules": {
+        "typescript/no-unsafe-function-type": "off"
+      }
+    },
+    {
+      // logging is this helper's purpose
+      "files": ["source/log.ts"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ],
+  "ignorePatterns": ["dist/**", "coverage/**"]
+}

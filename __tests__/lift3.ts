@@ -1,4 +1,7 @@
-import { lift3, lift3U, propOrU } from '../source'
+import { lift3, lift3U } from '../source/lift3.js'
+import assert from 'node:assert/strict'
+import { propOrU } from '../source/propOr.js'
+import { test } from 'node:test'
 
 test('lift3 gets name, email, age & joins into string with a pipe', () => {
   const propOrNA = propOrU('N/A')
@@ -11,6 +14,6 @@ test('lift3 gets name, email, age & joins into string with a pipe', () => {
   const joinNameEmailAge = lift3(joinPipe, getName, getEmail, getAge)
   const joinNameEmailAgeU = lift3U(joinPipe)(getName)(getEmail)(getAge)
 
-  expect(joinNameEmailAge(input)).toStrictEqual('bobert | bobert@email.com | 34')
-  expect(joinNameEmailAgeU(input)).toStrictEqual('bobert | bobert@email.com | 34')
+  assert.deepStrictEqual(joinNameEmailAge(input), 'bobert | bobert@email.com | 34')
+  assert.deepStrictEqual(joinNameEmailAgeU(input), 'bobert | bobert@email.com | 34')
 })

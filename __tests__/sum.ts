@@ -1,6 +1,8 @@
-import { sum } from '../source'
+import assert from 'node:assert/strict'
+import { sum } from '../source/sum.js'
+import { test } from 'node:test'
 
 test('sum adds all the numbers in a list', () => {
-  expect(sum([])).toEqual(0)
-  expect(sum([1, 2, 3, 94])).toStrictEqual(100)
+  assert.deepStrictEqual(sum([]), 0)
+  assert.deepStrictEqual(sum([1, 2, 3, 94]), 100)
 })

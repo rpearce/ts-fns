@@ -1,14 +1,16 @@
-import { identity } from '../source'
+import assert from 'node:assert/strict'
+import { identity } from '../source/identity.js'
+import { test } from 'node:test'
 
 test('identity returns whatever it was passed', () => {
-  expect(identity(42)).toEqual(42)
+  assert.deepStrictEqual(identity(42), 42)
 
   const fn = (a: number) => (b: number) => b + a
-  expect(identity(fn)).toStrictEqual(fn)
+  assert.deepStrictEqual(identity(fn), fn)
 
   const obj = { foo: 'bar' }
-  expect(identity(obj)).toStrictEqual(obj)
+  assert.deepStrictEqual(identity(obj), obj)
 
   const arr = ['foo', 'bar']
-  expect(identity(arr)).toStrictEqual(arr)
+  assert.deepStrictEqual(identity(arr), arr)
 })

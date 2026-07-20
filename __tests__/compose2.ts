@@ -1,4 +1,6 @@
-import { compose2 } from '../source'
+import assert from 'node:assert/strict'
+import { compose2 } from '../source/compose2.js'
+import { test } from 'node:test'
 
 test('compose2 adds 2 to a number and then multiplies by 10', () => {
   const add = (a: number) => (b: number) => a + b
@@ -7,5 +9,5 @@ test('compose2 adds 2 to a number and then multiplies by 10', () => {
   const mult10 = mult(10)
   const add12 = compose2(mult10, add2)
 
-  expect(add12(8)).toStrictEqual(100)
+  assert.deepStrictEqual(add12(8), 100)
 })

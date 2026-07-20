@@ -1,21 +1,22 @@
 {
   "compilerOptions": {
-    "allowJs": false,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "esModuleInterop": true,
-    "lib": ["esnext"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "erasableSyntaxOnly": true,
+    "exactOptionalPropertyTypes": true,
+    "module": "nodenext",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
     "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "./dist/",
-    "pretty": true,
-    "sourceMap": false,
-    "strict": true,
-    "target": "es2015"
+    "target": "es2023",
+    "types": ["node"],
+    "verbatimModuleSyntax": true
   },
-  "include": ["./source/index.ts"]
+  "include": ["./source", "./__tests__"]
 }

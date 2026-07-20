@@ -9,7 +9,7 @@ export interface HasPropU {
 }
 
 export const hasProp: HasProp = (property, obj) =>
-  Object.prototype.hasOwnProperty.call(obj, property)
+  Object.hasOwn(obj, property)
 
 export const hasPropU: HasPropU = property => obj =>
   hasProp(property, obj)

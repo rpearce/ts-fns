@@ -1,21 +1,19 @@
-export interface Zip {
-  <A, B>(xs: A[], ys: B[]): [A, B][]
-}
+export const zip = <A, B>(xs: A[], ys: B[]): [A, B][] => {
+  const zs: [A, B][] = []
+  const iterY = ys[Symbol.iterator]()
 
-export interface ZipU {
-  <A, B>(xs: A[]): (ys: B[]) => [A, B][]
-}
+  for (const x of xs) {
+    const next = iterY.next()
 
-export const zip: Zip = (xs, ys) => {
-  const maxLength = Math.min(xs.length, ys.length)
-  const zs = new Array(maxLength)
+    if (next.done === true) {
+      break
+    }
 
-  for (let i = 0; i < maxLength; i++) {
-    zs[i] = [xs[i], ys[i]]
+    zs.push([x, next.value])
   }
 
   return zs
 }
 
-export const zipU: ZipU = xs => ys =>
+export const zipU = <A, B>(xs: A[]) => (ys: B[]): [A, B][] =>
   zip(xs, ys)

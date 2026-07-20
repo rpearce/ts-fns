@@ -1,53 +1,56 @@
-import { T, cond, condU } from '../source'
+import { cond, condU } from '../source/cond.js'
+import { T } from '../source/T.js'
+import assert from 'node:assert/strict'
+import { test } from 'node:test'
 
 test('cond works will all static values', () => {
   // ===========================================================================
 
-  expect(cond([
+  assert.deepStrictEqual(cond([
     ['foo', 'was foo'],
     ['bar', 'was bar'],
-  ], 'foo')).toStrictEqual('was foo')
+  ], 'foo'), 'was foo')
 
-  expect(condU([
+  assert.deepStrictEqual(condU([
     ['foo', 'was foo'],
     ['bar', 'was bar'],
-  ])('foo')).toStrictEqual('was foo')
+  ])('foo'), 'was foo')
 
   // ===========================================================================
 
-  expect(cond([
+  assert.deepStrictEqual(cond([
     ['foo', 'was foo'],
     ['bar', 'was bar'],
-  ], 'bar')).toStrictEqual('was bar')
+  ], 'bar'), 'was bar')
 
-  expect(condU([
+  assert.deepStrictEqual(condU([
     ['foo', 'was foo'],
     ['bar', 'was bar'],
-  ])('bar')).toStrictEqual('was bar')
+  ])('bar'), 'was bar')
 
   // ===========================================================================
 
-  expect(cond([
+  assert.deepStrictEqual(cond([
     [true, 'was true'],
     [false, 'was false'],
-  ], true)).toStrictEqual('was true')
+  ], true), 'was true')
 
-  expect(condU([
+  assert.deepStrictEqual(condU([
     [true, 'was true'],
     [false, 'was false'],
-  ])(true)).toStrictEqual('was true')
+  ])(true), 'was true')
 
   // ===========================================================================
 
-  expect(cond([
+  assert.deepStrictEqual(cond([
     [true, 'was true'],
     [false, 'was false'],
-  ], true)).toStrictEqual('was true')
+  ], true), 'was true')
 
-  expect(condU([
+  assert.deepStrictEqual(condU([
     [true, 'was true'],
     [false, 'was false'],
-  ])(false)).toStrictEqual('was false')
+  ])(false), 'was false')
 
   // ===========================================================================
 })
@@ -55,45 +58,45 @@ test('cond works will all static values', () => {
 test('cond works will all function values', () => {
   // ===========================================================================
 
-  expect(cond([
-    [(x: string) => x === 'foo', x => `was foo? ${x}`],
-    [(x: string) => x === 'bar', x => `was bar? ${x}`],
+  assert.deepStrictEqual(cond([
+    [(x: string) => x === 'foo', (x: string) => `was foo? ${x}`],
+    [(x: string) => x === 'bar', (x: string) => `was bar? ${x}`],
     [T, () => 'was none'],
-  ], 'foo')).toStrictEqual('was foo? foo')
+  ], 'foo'), 'was foo? foo')
 
-  expect(condU([
-    [(x: string) => x === 'foo', x => `was foo? ${x}`],
-    [(x: string) => x === 'bar', x => `was bar? ${x}`],
+  assert.deepStrictEqual(condU([
+    [(x: string) => x === 'foo', (x: string) => `was foo? ${x}`],
+    [(x: string) => x === 'bar', (x: string) => `was bar? ${x}`],
     [T, () => 'was none'],
-  ])('foo')).toStrictEqual('was foo? foo')
+  ])('foo'), 'was foo? foo')
 
   // ===========================================================================
 
-  expect(cond([
-    [(x: string) => x === 'foo', x => `was foo? ${x}`],
-    [(x: string) => x === 'bar', x => `was bar? ${x}`],
+  assert.deepStrictEqual(cond([
+    [(x: string) => x === 'foo', (x: string) => `was foo? ${x}`],
+    [(x: string) => x === 'bar', (x: string) => `was bar? ${x}`],
     [T, () => 'was none'],
-  ], 'bar')).toStrictEqual('was bar? bar')
+  ], 'bar'), 'was bar? bar')
 
-  expect(condU([
-    [(x: string) => x === 'foo', x => `was foo? ${x}`],
-    [(x: string) => x === 'bar', x => `was bar? ${x}`],
+  assert.deepStrictEqual(condU([
+    [(x: string) => x === 'foo', (x: string) => `was foo? ${x}`],
+    [(x: string) => x === 'bar', (x: string) => `was bar? ${x}`],
     [T, () => 'was none'],
-  ])('bar')).toStrictEqual('was bar? bar')
+  ])('bar'), 'was bar? bar')
 
   // ===========================================================================
 
-  expect(cond([
-    [(x: string) => x === 'foo', x => `was foo? ${x}`],
-    [(x: string) => x === 'bar', x => `was bar? ${x}`],
+  assert.deepStrictEqual(cond([
+    [(x: string) => x === 'foo', (x: string) => `was foo? ${x}`],
+    [(x: string) => x === 'bar', (x: string) => `was bar? ${x}`],
     [T, () => 'was none'],
-  ], 'baz')).toStrictEqual('was none')
+  ], 'baz'), 'was none')
 
-  expect(condU([
-    [(x: string) => x === 'foo', x => `was foo? ${x}`],
-    [(x: string) => x === 'bar', x => `was bar? ${x}`],
+  assert.deepStrictEqual(condU([
+    [(x: string) => x === 'foo', (x: string) => `was foo? ${x}`],
+    [(x: string) => x === 'bar', (x: string) => `was bar? ${x}`],
     [T, () => 'was none'],
-  ])('baz')).toStrictEqual('was none')
+  ])('baz'), 'was none')
 
   // ===========================================================================
 })
@@ -101,51 +104,72 @@ test('cond works will all function values', () => {
 test('cond works will mixed static & function values', () => {
   // ===========================================================================
 
-  expect(cond([
-    ['foo', x => `was foo? ${x}`],
+  assert.deepStrictEqual(cond([
+    ['foo', (x: string) => `was foo? ${x}`],
     [(x: string) => x === 'bar', 'was bar'],
     ['random', 'nothing'],
     [T, () => 'was none'],
-  ], 'foo')).toStrictEqual('was foo? foo')
+  ], 'foo'), 'was foo? foo')
 
-  expect(condU([
-    ['foo', x => `was foo? ${x}`],
+  assert.deepStrictEqual(condU([
+    ['foo', (x: string) => `was foo? ${x}`],
     [(x: string) => x === 'bar', 'was bar'],
     ['random', 'nothing'],
     [T, () => 'was none'],
-  ])('foo')).toStrictEqual('was foo? foo')
+  ])('foo'), 'was foo? foo')
 
   // ===========================================================================
 
-  expect(cond([
-    ['foo', x => `was foo? ${x}`],
+  assert.deepStrictEqual(cond([
+    ['foo', (x: string) => `was foo? ${x}`],
     [(x: string) => x === 'bar', 'was bar'],
     ['random', 'nothing'],
     [T, () => 'was none'],
-  ], 'bar')).toStrictEqual('was bar')
+  ], 'bar'), 'was bar')
 
-  expect(condU([
-    ['foo', x => `was foo? ${x}`],
+  assert.deepStrictEqual(condU([
+    ['foo', (x: string) => `was foo? ${x}`],
     [(x: string) => x === 'bar', 'was bar'],
     ['random', 'nothing'],
     [T, () => 'was none'],
-  ])('bar')).toStrictEqual('was bar')
+  ])('bar'), 'was bar')
 
   // ===========================================================================
 
-  expect(cond([
-    ['foo', x => `was foo? ${x}`],
+  assert.deepStrictEqual(cond([
+    ['foo', (x: string) => `was foo? ${x}`],
     [(x: string) => x === 'bar', 'was bar'],
     ['random', 'nothing'],
     [T, 'was none'],
-  ], 'baz')).toStrictEqual('was none')
+  ], 'baz'), 'was none')
 
-  expect(condU([
-    ['foo', x => `was foo? ${x}`],
+  assert.deepStrictEqual(condU([
+    ['foo', (x: string) => `was foo? ${x}`],
     [(x: string) => x === 'bar', 'was bar'],
     ['random', 'nothing'],
     [T, 'was none'],
-  ])('baz')).toStrictEqual('was none')
+  ])('baz'), 'was none')
+
+  // ===========================================================================
+})
+
+test('cond returns the data unchanged when nothing matches', () => {
+  // ===========================================================================
+
+  assert.deepStrictEqual(cond([
+    ['foo', 'was foo'],
+    [(x: string) => x === 'bar', 'was bar'],
+  ], 'baz'), 'baz')
+
+  assert.deepStrictEqual(condU([
+    ['foo', 'was foo'],
+    [(x: string) => x === 'bar', 'was bar'],
+  ])('baz'), 'baz')
+
+  // ===========================================================================
+
+  assert.deepStrictEqual(cond([], 'baz'), 'baz')
+  assert.deepStrictEqual(condU([])('baz'), 'baz')
 
   // ===========================================================================
 })
@@ -153,19 +177,19 @@ test('cond works will mixed static & function values', () => {
 test('cond works with mixed primitive types', () => {
   // ===========================================================================
 
-  expect(cond([
+  assert.deepStrictEqual(cond([
     [42, 'meaning of life'],
     [(x: number) => x > 9000, () => 'OVER 9000!!!'],
     [true, () => 'I am just true'],
-    [() => true, x => `I am a fallback for ${x}`],
-  ], true)).toStrictEqual('I am just true')
+    [() => true, (x: boolean) => `I am a fallback for ${x}`],
+  ], true), 'I am just true')
 
-  expect(condU([
+  assert.deepStrictEqual(condU([
     [42, 'meaning of life'],
     [(x: number) => x > 9000, () => 'OVER 9000!!!'],
     [true, () => 'I am just true'],
-    [() => true, x => `I am a fallback for ${x}`],
-  ])(true)).toStrictEqual('I am just true')
+    [() => true, (x: boolean) => `I am a fallback for ${x}`],
+  ])(true), 'I am just true')
 
   // ===========================================================================
 })

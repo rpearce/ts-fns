@@ -1,21 +1,37 @@
-import { classNames } from '../source'
+import assert from 'node:assert/strict'
+import { classNames } from '../source/classNames.js'
+import { test } from 'node:test'
 
 test('cond works will all static values', () => {
-  expect(classNames()).toStrictEqual('')
-  expect(classNames('')).toStrictEqual('')
-  expect(classNames('foo')).toStrictEqual('foo')
-  expect(classNames('foo bar')).toStrictEqual('foo bar')
-  expect(classNames('foo', 'bar')).toStrictEqual('foo bar')
-  expect(classNames('foo', 'bar', 'baz')).toStrictEqual('foo bar baz')
-  expect(classNames('foo', { bar: true })).toStrictEqual('foo bar')
-  expect(classNames('foo', { bar: true, baz: false })).toStrictEqual('foo bar')
-  expect(classNames('foo', { bar: true, baz: true })).toStrictEqual('foo bar baz')
-  expect(classNames('foo', { bar: true, baz: true }, 'qux')).toStrictEqual('foo bar baz qux')
-  expect(classNames('foo', { bar: true, baz: true }, 'qux', {})).toStrictEqual('foo bar baz qux')
-  expect(classNames('foo', { bar: true, baz: true }, 'qux', { abc: false })).toStrictEqual('foo bar baz qux')
-  expect(classNames('foo', { bar: true, baz: true }, 'qux', { abc: true })).toStrictEqual('foo bar baz qux abc')
-  expect(classNames({ bar: true, baz: false, qux: true })).toStrictEqual('bar qux')
+  assert.deepStrictEqual(classNames(), '')
+  assert.deepStrictEqual(classNames(''), '')
+  assert.deepStrictEqual(classNames('foo'), 'foo')
+  assert.deepStrictEqual(classNames('foo bar'), 'foo bar')
+  assert.deepStrictEqual(classNames('foo', 'bar'), 'foo bar')
+  assert.deepStrictEqual(classNames('foo', 'bar', 'baz'), 'foo bar baz')
+  assert.deepStrictEqual(classNames('foo', { bar: true }), 'foo bar')
+  assert.deepStrictEqual(classNames('foo', { bar: true, baz: false }), 'foo bar')
+  assert.deepStrictEqual(classNames('foo', { bar: true, baz: true }), 'foo bar baz')
+  assert.deepStrictEqual(classNames('foo', { bar: true, baz: true }, 'qux'), 'foo bar baz qux')
+  assert.deepStrictEqual(classNames('foo', { bar: true, baz: true }, 'qux', {}), 'foo bar baz qux')
+  assert.deepStrictEqual(classNames('foo', { bar: true, baz: true }, 'qux', { abc: false }), 'foo bar baz qux')
+  assert.deepStrictEqual(classNames('foo', { bar: true, baz: true }, 'qux', { abc: true }), 'foo bar baz qux abc')
+  assert.deepStrictEqual(classNames({ bar: true, baz: false, qux: true }), 'bar qux')
 
   // @ts-expect-error Testing undefined behavior for non-TS
-  expect(classNames(undefined, 'foo')).toStrictEqual('foo')
+  assert.deepStrictEqual(classNames(undefined, 'foo'), 'foo')
+})
+
+test('classNames skips empty strings without adding stray spaces', () => {
+  assert.deepStrictEqual(classNames('', 'foo'), 'foo')
+  assert.deepStrictEqual(classNames('foo', ''), 'foo')
+  assert.deepStrictEqual(classNames('foo', '', 'bar'), 'foo bar')
+})
+
+test('classNames ignores inherited object properties', () => {
+  const obj: Record<string, boolean> = { own: true }
+  Reflect.setPrototypeOf(obj, { inherited: true })
+
+  assert.deepStrictEqual(classNames(obj), 'own')
+  assert.deepStrictEqual(classNames('foo', obj), 'foo own')
 })

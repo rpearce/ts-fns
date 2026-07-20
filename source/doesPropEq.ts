@@ -14,7 +14,7 @@ export interface DoesPropEqU {
 }
 
 export const doesPropEq: DoesPropEq = (property, value, data) =>
-  data[property as any] === value // eslint-disable-line @typescript-eslint/no-explicit-any
+  Reflect.get(data, property) === value
 
 export const doesPropEqU: DoesPropEqU = property => value => data =>
   doesPropEq(property, value, data)

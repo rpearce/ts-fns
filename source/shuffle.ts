@@ -1,19 +1,13 @@
-export interface Shuffle {
-  <A>(xs: A[]): A[]
-}
+// Fisher-Yates variant: repeatedly extract a uniformly random remaining element
+export const shuffle = <A>(xs: A[]): A[] => {
+  const pool = [...xs]
+  const result: A[] = []
 
-// Modern Fisher-Yates shuffle algo
-export const shuffle: Shuffle = (xs) => {
-  const xsClone = structuredClone(xs)
-  let i = xsClone.length - 1
+  while (pool.length > 0) {
+    const j = Math.floor(Math.random() * pool.length)
 
-  for (; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    const tmp = xsClone[i]
-
-    xsClone[i] = xsClone[j]
-    xsClone[j] = tmp
+    result.push(...pool.splice(j, 1))
   }
 
-  return xsClone
+  return result
 }
