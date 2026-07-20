@@ -1,4 +1,4 @@
-import { reduce } from './'
+import { reduce } from './reduce.js'
 
 export interface Sum {
   (xs: number[]): number

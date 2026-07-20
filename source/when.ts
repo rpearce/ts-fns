@@ -1,19 +1,19 @@
-import { isFunction } from './'
+import { isFunction } from './isFunction.js'
 
 export interface When {
   <A, B>(
-    condition: ((x: A) => boolean) | A | unknown,
-    returnVal: ((x: A) => B) | B | unknown,
+    condition: ((x: A) => boolean) | A,
+    returnVal: ((x: A) => B) | B,
     data: A
-  ): A | B | unknown
+  ): A | B
 }
 
 export interface WhenU {
-  <A, B>
-  (condition: ((x: A) => boolean) | A | unknown):
-  (returnVal: ((x: A) => B) | B | unknown) =>
+  <A>
+  (condition: ((x: A) => boolean) | A):
+  <B>(returnVal: ((x: A) => B) | B) =>
   (data: A) =>
-  A | B | unknown
+  A | B
 }
 
 export const when: When = (condition, returnVal, data) => {

@@ -1,4 +1,5 @@
-import { isObject } from './'
+import { hasProp } from './hasProp.js'
+import { isObject } from './isObject.js'
 
 export interface ClassNames {
   (...args: (string | Record<string, boolean>)[]): string
@@ -9,10 +10,12 @@ export const classNames: ClassNames = (...args) => {
 
   for (const arg of args) {
     if (typeof arg === 'string') {
-      cns.push(arg)
+      if (arg) {
+        cns.push(arg)
+      }
     } else if (isObject(arg)) {
       for (const k in arg) {
-        if (arg[k]) {
+        if (hasProp(k, arg) && Boolean(arg[k])) {
           cns.push(k)
         }
       }

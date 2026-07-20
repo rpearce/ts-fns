@@ -1,9 +1,9 @@
 export interface TakeN {
-  (n: number, xs: unknown[]): unknown[]
+  <A>(n: number, xs: A[]): A[]
 }
 
 export interface TakeNU {
-  (n: number): (xs: unknown[]) => unknown[]
+  (n: number): <A>(xs: A[]) => A[]
 }
 
 export const takeN: TakeN = (n, xs) =>

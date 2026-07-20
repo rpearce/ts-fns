@@ -1,18 +1,11 @@
 export const omitKeys =
-  <
-    K extends PropertyKey,
-    A extends Record<PropertyKey, unknown>
-  >
-  (keys: K[], obj: A): Partial<A> => {
-    const keysIndex: Record<PropertyKey, boolean> = {}
+  <A extends Record<PropertyKey, unknown>>
+  (keys: PropertyKey[], obj: A): Partial<A> => {
+    const keysIndex = new Set(keys)
     const result: Partial<A> = {}
 
-    for (const key of keys) {
-      keysIndex[key] = true
-    }
-
     for (const k in obj) {
-      if (!keysIndex[k]) {
+      if (Object.hasOwn(obj, k) && !keysIndex.has(k)) {
         result[k] = obj[k]
       }
     }
@@ -21,9 +14,6 @@ export const omitKeys =
   }
 
 export const omitKeysU =
-  <
-    K extends PropertyKey,
-    A extends Record<PropertyKey, unknown>
-  >
-  (keys: K[]) => (obj: A): Partial<A> =>
+  <A extends Record<PropertyKey, unknown>>
+  (keys: PropertyKey[]) => (obj: A): Partial<A> =>
     omitKeys(keys, obj)

@@ -1,16 +1,15 @@
-import {
-  Functor,
-  compose2,
-  isFunction,
-  isFunctor,
-  isObject,
-  mapObject,
-} from './'
+import type { Functor } from './customTypes.js'
+import { compose2 } from './compose2.js'
+import { isFunction } from './isFunction.js'
+import { isFunctor } from './isFunctor.js'
+import { isObject } from './isObject.js'
+import { mapObject } from './mapObject.js'
 
 export type MapData<A> =
-    Functor<A>
+    A[]
+  | Functor<A>
   | Record<PropertyKey, A>
-  | ((x: unknown) => A)
+  | ((x: never) => A)
 
 export const map = <A, B>(fn: (x: A) => B, m: MapData<A>) => {
   if (isFunction(fn)) {
